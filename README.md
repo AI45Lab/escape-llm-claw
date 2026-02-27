@@ -22,8 +22,9 @@ LLM-based Agent ("claws") aggressively crawl internet-scale information during t
 git clone https://github.com/AI45Lab/escape-llm-claw.git
 cd escape-llm-claw
 bash runs/install.sh
-bash elc.sh
+bash runs/elc.sh
 ```
+This enables you to set up a web service at local port [http://127.0.0.1:5000](http://127.0.0.1:5000). After deploying the web service to a pulicly accessible server, you can further verify whether LLM agent is able to craw the website. For preliminary testing, we recommend using [Ngrok](https://ngrok.com/) to temporarily expose your local machine to external LLMs.
 
 ## How Effective is ELC
 
