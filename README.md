@@ -25,6 +25,7 @@ bash runs/install.sh
 bash runs/elc.sh
 ```
 This enables you to set up a web service at local port [http://127.0.0.1:5000](http://127.0.0.1:5000). After deploying the web service to a pulicly accessible server, you can further verify whether LLM agent is able to craw the website. For preliminary testing, we recommend using [Ngrok](https://ngrok.com/) to temporarily expose your local machine to external LLMs.
+For demonstration purposes, we provide an ELC-enabled web service which is publicly accessible at: <https://kinolee.pythonanywhere.com/>.
 
 ## How Effective is ELC
 
@@ -43,7 +44,6 @@ ELC reduces agent crawling success rate by **93% on average** across major front
   <img src="demo/elc-demo.gif" alt="ELC Demo" width="700">
 </p>
 
-A public deployment of the web service is available at: <https://kinolee.pythonanywhere.com/>
 
 ## How does ELC Escape Agent Claws
 
