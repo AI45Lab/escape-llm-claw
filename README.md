@@ -19,8 +19,8 @@ LLM-based Agent ("claws") aggressively crawl internet-scale information during t
 ## Quick Start
 
 ```bash
-git clone https://github.com/ailab-center4safety/escape-llm-crawl.git
-cd escape-llm-crawl
+git clone https://github.com/AI45Lab/escape-llm-claw.git
+cd escape-llm-claw
 bash runs/install.sh
 bash elc.sh
 ```
