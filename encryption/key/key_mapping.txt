@@ -1,0 +1,5 @@
+ARTICLE_NAME	IMAGE_PATH	AES_KEY_B64	PAYLOAD_LEN
+about_magnanimous_incident_literature.txt	/Users/gary/Documents/Project/ELC/escape-llm-crawl/encryption/carrier/encoded/about_magnanimous_incident_literature.png	RWNMuVIzzi4NO3Ffleb6Ag==	13246
+a_childs_biography.txt	/Users/gary/Documents/Project/ELC/escape-llm-crawl/encryption/carrier/encoded/a_childs_biography.png	3XiVqSuAU35OKOt5Wxv6eQ==	7126
+articles_with_id.txt	/Users/gary/Documents/Project/ELC/escape-llm-crawl/encryption/carrier/encoded/articles_with_id.png	2iaDRNO9XLRx7PE01JwutA==	59098
+spring_river_flower_moon_night.txt	/Users/gary/Documents/Project/ELC/escape-llm-crawl/encryption/carrier/encoded/spring_river_flower_moon_night.png	HknJ5NJoas5YKImj0FCc2g==	2824
