@@ -439,28 +439,49 @@ def article_page(article_id: str):
       }}
 
       async function decryptOne() {{
-        const card = document.getElementById('article-card');
-        const out = document.getElementById('content');
+          const card = document.getElementById('article-card');
+          const out = document.getElementById('content');
 
-        try {{
-          const keyB64 = card.dataset.key;
-          const payloadLen = parseInt(card.dataset.payload);
-          const imgB64 = card.dataset.img;
+          try {{
+            const keyB64 = card.dataset.key;
+            const payloadLen = parseInt(card.dataset.payload);
+            const imgB64 = card.dataset.img;
 
-          const key = b64ToBytes(keyB64);
-          const plaintext = await extractAndDecryptPng(key, imgB64, payloadLen);
-          out.textContent = plaintext;
-          out.classList.remove('content-loading');
-        }} catch (e) {{
-          out.textContent = "Decryption failed: " + e.message;
-          out.style.color = "#ff4444";
+            const key = b64ToBytes(keyB64);
+            const plaintext = await extractAndDecryptPng(key, imgB64, payloadLen);
+            out.textContent = plaintext;
+            out.classList.remove('content-loading');
+          }} catch (e) {{
+            out.textContent = "Decryption failed: " + e.message;
+            out.style.color = "#ff4444";
+          }}
         }}
-      }}
 
-      // Delayed decryption: ensure functions are defined before execution
-      setTimeout(() => {{
-        window.onload = decryptOne;
-      }}, 1);
+        // Robust async trigger: never miss the event, run once
+        function once(fn) {{
+          let done = false;
+          return function(...args) {{
+            if (done) return;
+            done = true;
+            return fn.apply(this, args);
+          }};
+        }}
+
+        const startDecrypt = once(() => {{
+          // keep it async (microtask), do not block rendering
+          Promise.resolve().then(() => decryptOne());
+        }});
+
+        // Future triggers
+        document.addEventListener('DOMContentLoaded', startDecrypt, {{ once: true }});
+        window.addEventListener('load', startDecrypt, {{ once: true }});
+
+        // Past-event fallback: if DOM is already ready, trigger immediately
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {{
+          startDecrypt();
+        }}
+
+
     </script>
   </body>
 </html>
